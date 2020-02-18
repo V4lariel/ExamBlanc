@@ -1,1 +1,52 @@
-<p>add-shoes works!</p>
+<h1>Ajouter une paire de chaussures : </h1>
+<form #validationShoes="ngForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="name">Nom de la paire de chaussures</label>
+    <input type="text" class="form-control" id="name"
+           name="name" required [(ngModel)]="shoesForm.name"
+           #name="ngModel">
+    <div [hidden]="name.valid"
+         class="alert alert-danger">
+      Veuillez saisir un nom
+    </div>
+  </div>
+
+  <div class="form-group">
+    <mat-radio-group name="marque" aria-label="Choisissez une marque" required [(ngModel)]="shoesForm.marque" #marque="ngModel">
+      <mat-radio-button id="adidas" value="adidas">Adidas</mat-radio-button>
+      <mat-radio-button id="nike" value="nike">Nike</mat-radio-button>
+      <mat-radio-button id="puma" value="puma">Puma</mat-radio-button>
+    </mat-radio-group>
+    <div [hidden]="marque.valid"
+         class="alert alert-danger">
+      Veuillez renseigner une marque
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="type-select">Type de la paire de chaussures</label>
+    <select name="type" id="type-select" required [(ngModel)]="shoesForm.type"
+            #type="ngModel">
+      <option value="">--- Choisir un type ---</option>
+      <option value="sport">Sport</option>
+      <option value="ville">Ville</option>
+      <option value="foot">Foot</option>
+    </select>
+    <div [hidden]="type.valid"
+         class="alert alert-danger">
+      Veuillez choisir un type de chaussures
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="dateEntree">Date d'Entrée</label>
+    <input type="date" id="dateEntree" name="date" required [(ngModel)]="shoesForm.dateEntree"
+           #date="ngModel">
+    <div [hidden]="date.valid"
+         class="alert alert-danger">
+      Veuillez choisir une date
+    </div>
+  </div>
+  <input type="submit" [disabled]="!validationShoes.valid">
+</form>
