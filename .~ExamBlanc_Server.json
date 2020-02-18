@@ -1,0 +1,19 @@
+{
+  "chaussure": [
+    {
+      "id": 1,
+      "name": "f50",
+      "marque": "Adidas",
+      "type": "Football",
+      "taille": 43,
+      "dateEntree": "2012-04-23T18:25:43.511Z"
+    },
+    {
+      "id": 2,
+      "name": "Cali",
+      "marque": "puma",
+      "type": "sport",
+      "dateEntree": "2020-02-18"
+    }
+  ]
+}
